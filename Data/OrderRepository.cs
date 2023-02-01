@@ -3,8 +3,8 @@ using AutoMapper.QueryableExtensions;
 using Itzz.DTO;
 using Itzz.Entities;
 using Itzz.Interfaces;
-using MedFiszkiApi.Data;
-using MedFiszkiApi.Helpers;
+using Itzz.Data;
+using Itzz.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -13,10 +13,10 @@ namespace Itzz.Data;
 
 public class OrderRepository : IOrderRepository
 {
-    private readonly Mapper _mapper;
+    private readonly IMapper _mapper;
     private readonly DataContext _dataContext;
 
-    public OrderRepository(Mapper mapper, DataContext dataContext)
+    public OrderRepository(IMapper mapper, DataContext dataContext)
     {
         _mapper = mapper;
         _dataContext = dataContext;

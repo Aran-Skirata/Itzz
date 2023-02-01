@@ -1,6 +1,6 @@
 using Itzz.Enums;
 
-namespace MedFiszkiApi.Helpers;
+namespace Itzz.Helpers;
 
 public class OrderPagedParams : PaginationParams
 {

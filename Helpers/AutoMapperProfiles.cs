@@ -3,11 +3,11 @@ using Itzz.DTO;
 using Itzz.Entities;
 using Route = Itzz.Entities.Route;
 
-namespace MedFiszkiApi.Helpers;
+namespace Itzz.Helpers;
 
 public class AutoMapperProfiles : Profile
 {
-    protected AutoMapperProfiles()
+    public AutoMapperProfiles()
     {
         CreateMap<Cargo, CargoDto>();
         CreateMap<CargoDto, Cargo>();

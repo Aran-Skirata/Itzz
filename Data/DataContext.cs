@@ -3,7 +3,7 @@ using Itzz.Entities;
 using Microsoft.EntityFrameworkCore;
 using Route = Itzz.Entities.Route;
 
-namespace MedFiszkiApi.Data;
+namespace Itzz.Data;
 
 public class DataContext : DbContext
 {

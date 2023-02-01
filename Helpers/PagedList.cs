@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace MedFiszkiApi.Helpers;
+namespace Itzz.Helpers;
 
 public class PagedList<T> : List<T>
 {

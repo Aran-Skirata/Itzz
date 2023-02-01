@@ -3,8 +3,8 @@ using AutoMapper.QueryableExtensions;
 using Itzz.DTO;
 using Itzz.Entities;
 using Itzz.Interfaces;
-using MedFiszkiApi.Data;
-using MedFiszkiApi.Helpers;
+using Itzz.Data;
+using Itzz.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 

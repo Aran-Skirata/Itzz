@@ -1,5 +1,5 @@
 using Itzz.DTO;
-using MedFiszkiApi.Helpers;
+using Itzz.Helpers;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Itzz.Interfaces;

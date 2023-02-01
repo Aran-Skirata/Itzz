@@ -1,4 +1,4 @@
-namespace MedFiszkiApi.Helpers;
+namespace Itzz.Helpers;
 
 public class RoutePagedParams : PaginationParams
 {
