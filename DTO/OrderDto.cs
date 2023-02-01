@@ -3,7 +3,7 @@ using Itzz.Enums;
 
 namespace Itzz.DTO;
 
-public class Order
+public class OrderDto
 {
     public int Id { get; set; }
     public Priority Priority { get; set; }
