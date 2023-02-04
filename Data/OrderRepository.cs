@@ -3,10 +3,8 @@ using AutoMapper.QueryableExtensions;
 using Itzz.DTO;
 using Itzz.Entities;
 using Itzz.Interfaces;
-using Itzz.Data;
 using Itzz.Helpers;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
 namespace Itzz.Data;
@@ -26,9 +24,6 @@ public class OrderRepository : IOrderRepository
     {
         var query = _dataContext.Orders.Include(o => o.Route).Include(o => o.Cargoes).AsQueryable();
 
-        query = query.Where(o => o.RouteId == orderPagedParams.RouteId);
-        query = query.Where(o => o.Priority == orderPagedParams.Priority);
-
         return await PagedList<OrderDto>.CreateAsync(
             query.ProjectTo<OrderDto>(_mapper.ConfigurationProvider).AsNoTracking(),
             orderPagedParams.PageNumber,
@@ -41,9 +36,10 @@ public class OrderRepository : IOrderRepository
         _dataContext.Orders.Add(_mapper.Map<Order>(orderDto));
     }
 
-    public Task<ActionResult> UpdateOrder()
+    public async Task<IEnumerable<OrderEventDto>> GetOrderEventsAsync()
     {
-        throw new NotImplementedException();
+        return await _dataContext.Orders.ProjectTo<OrderEventDto>(_mapper.ConfigurationProvider).ToListAsync();
+
     }
 
     public Task<ActionResult> DeleteOrder()

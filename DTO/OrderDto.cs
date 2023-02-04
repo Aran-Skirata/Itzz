@@ -13,6 +13,6 @@ public class OrderDto
     public string? Description { get; set; }
     public string? TransportMeans { get; set; }
     public string? ExecutionMethod { get; set; }
-    public string? Route { get; set; }
+    public int? RouteId { get; set; }
     public string? Comments { get; set; }
 }

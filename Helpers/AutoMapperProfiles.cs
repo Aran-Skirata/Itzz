@@ -15,5 +15,8 @@ public class AutoMapperProfiles : Profile
         CreateMap<OrderDto, Order>();
         CreateMap<Route, RouteDto>();
         CreateMap<RouteDto, Route>();
+        CreateMap<Order, OrderEventDto>()
+            .ForMember(des => des.Title, opt => opt.MapFrom(src => src.Uuid))
+            .ForMember(des => des.End, opt => opt.MapFrom(src => src.DueTime));
     }
 }

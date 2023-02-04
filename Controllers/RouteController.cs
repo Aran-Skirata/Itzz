@@ -2,22 +2,23 @@ using Itzz.Data;
 using Itzz.DTO;
 using Itzz.Extensions;
 using Itzz.Helpers;
+using Itzz.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Itzz.Controllers;
 
 public class RouteController : BaseApiController
 {
-    private readonly RouteRepository _routeRepository;
+    private readonly IRouteRepository _routeRepository;
 
-    public RouteController(RouteRepository routeRepository)
+    public RouteController(IRouteRepository routeRepository)
     {
         _routeRepository = routeRepository;
     }
 
     
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<RouteDto>>> GetRoutes(RoutePagedParams routePagedParams)
+    public async Task<ActionResult<IEnumerable<RouteDto>>> GetRoutes([FromQuery]RoutePagedParams routePagedParams)
     {
         var routes = await _routeRepository.GetRouteAsync(routePagedParams);
         

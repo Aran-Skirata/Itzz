@@ -24,9 +24,7 @@ public class CargoRepository : ICargoRepository
     public async Task<PagedList<CargoDto>> GetCargoAsync(CargoPagedParams cargoPagedParams)
     {
         var query = _dataContext.Cargoes.Include(c => c.Orders).AsQueryable();
-
-        query = query.Where(c => c.Uuid == cargoPagedParams.Uuid);
-
+        
         return await PagedList<CargoDto>.CreateAsync(
             query.ProjectTo<CargoDto>(_mapper.ConfigurationProvider).AsNoTracking(),
             cargoPagedParams.PageNumber,

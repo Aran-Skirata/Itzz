@@ -8,7 +8,7 @@ public interface IOrderRepository
 {
     Task<PagedList<OrderDto>> GetOrderAsync(OrderPagedParams orderPagedParams);
     void AddNewOrder(OrderDto orderDto);
-    Task<ActionResult> UpdateOrder();
+    Task<IEnumerable<OrderEventDto>> GetOrderEventsAsync();
     Task<ActionResult> DeleteOrder();
     Task<bool> SaveAllAsync();
     

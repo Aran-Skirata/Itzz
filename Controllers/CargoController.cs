@@ -18,7 +18,7 @@ public class CargoController : BaseApiController
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<CargoDto>>> GetCargoes(CargoPagedParams cargoPagedParams)
+    public async Task<ActionResult<IEnumerable<CargoDto>>> GetCargoes([FromQuery]CargoPagedParams cargoPagedParams)
     {
         var cargoes = await _cargoRepository.GetCargoAsync(cargoPagedParams);
 

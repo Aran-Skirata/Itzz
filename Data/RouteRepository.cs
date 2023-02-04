@@ -22,12 +22,10 @@ public class RouteRepository : IRouteRepository
         _dataContext = dataContext;
     }
 
-    public async Task<PagedList<RouteDto>> GetRouteAsync(RoutePagedParams routePagedParams)
+    public async Task<PagedList<RouteDto>> GetRouteAsync([FromQuery]RoutePagedParams routePagedParams)
     {
        var query = _dataContext.Routes.Include(r => r.Orders).AsQueryable();
-
-       query = query.Where(r => r.Id == routePagedParams.Id);
-
+       
        return await PagedList<RouteDto>.CreateAsync(
            query.ProjectTo<RouteDto>(_mapper.ConfigurationProvider).AsNoTracking(),
            routePagedParams.PageNumber,
