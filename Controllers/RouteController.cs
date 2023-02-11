@@ -30,6 +30,7 @@ public class RouteController : BaseApiController
     [HttpPost]
     public async Task<ActionResult> CreateRoute(RouteDto routeDto)
     {
+        Console.WriteLine(routeDto);
         _routeRepository.AddNewRoute(routeDto);
 
         if (await _routeRepository.SaveAllAsync()) return NoContent();
