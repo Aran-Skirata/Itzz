@@ -4,9 +4,11 @@ using Itzz.Entities;
 using Itzz.Interfaces;
 using Itzz.Extensions;
 using Itzz.Helpers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Itzz.Controllers;
+
 
 public class CargoController : BaseApiController
 {
@@ -16,7 +18,7 @@ public class CargoController : BaseApiController
     {
         _cargoRepository = cargoRepository;
     }
-
+    
     [HttpGet]
     public async Task<ActionResult<IEnumerable<CargoDto>>> GetCargoes([FromQuery]CargoPagedParams cargoPagedParams)
     {
@@ -26,7 +28,8 @@ public class CargoController : BaseApiController
 
         return Ok(cargoes);
     }
-
+    
+    
     [HttpPost]
     public async Task<ActionResult> CreateCargo(CargoDto cargoDto)
     {

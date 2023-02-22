@@ -2,6 +2,7 @@ using Itzz.DTO;
 using Itzz.Interfaces;
 using Itzz.Extensions;
 using Itzz.Helpers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Itzz.Controllers;
@@ -24,14 +25,14 @@ public class OrderController : BaseApiController
 
         return Ok(orders);
     }
-
+    
     [HttpGet("events")]
     public async Task<ActionResult<IEnumerable<OrderEventDto>>> GetOrderEvents()
     {
         var orderEvents = await _orderRepository.GetOrderEventsAsync();
         return Ok(orderEvents);
     }
-
+    
     [HttpPost]
     public async Task<ActionResult> CreateOrder(OrderDto orderDto)
     {
